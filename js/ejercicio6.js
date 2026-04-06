@@ -21,10 +21,10 @@ let tiempo = 0;
           tiempo--;
           display.textContent = tiempo;
         } else {
-          clearInterval(intervalo);
+          clearInterval(intervalo);//frena el setIntervalo
           intervalo = null;
         }
-      }, 1000);
+      }, 1000);// ejecuta el codigo cada un segundo
     });
 
     // Pausar
