@@ -78,7 +78,28 @@
     </header>
     <main>
       <!--comentario-->
-      
+      <div class="container mt-5">
+        <div class="card p-4 shadow-lg mx-auto" style="max-width: 400px">
+          <h3 class="text-center mb-3">📝 Lista de Tareas</h3>
+
+          <!-- Input + botón -->
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              id="tareaInput"
+              class="form-control"
+              placeholder="Escribe una tarea..."
+              minlength="6"
+              maxlength="50"
+              required
+            />
+            <button id="agregarBtn" class="btn btn-outline-primary ms-3">Agregar</button>
+          </div>
+
+          <!-- Lista -->
+          <ul id="lista" class="list-group "></ul>
+        </div>
+      </div>
     </main>
     <footer></footer>
     <script
