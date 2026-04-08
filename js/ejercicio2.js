@@ -1,6 +1,6 @@
 //ejercicio 2
 
-let persona
+let persona;
 
 class Persona {
   constructor(nombre, edad, dni, sexo, peso, altura, anioNacimiento) {
@@ -12,7 +12,7 @@ class Persona {
     this.altura = altura;
     this.anioNacimiento = anioNacimiento;
   }
-//metodos
+  //metodos
   mostrarGeneracion() {
     let generacion = "";
     let rasgo = "";
@@ -41,9 +41,7 @@ class Persona {
   }
 
   esMayorDeEdad() {
-    return this.edad >= 18
-      ? "Es mayor de edad"
-      : "No es mayor de edad";
+    return this.edad >= 18 ? "Es mayor de edad" : "No es mayor de edad";
   }
 
   mostrarDatos() {
@@ -60,48 +58,46 @@ Año de nacimiento: ${this.anioNacimiento}
 }
 
 //crear persona
-    document.getElementById("formPersona").addEventListener("submit", function(e) {//esta escuchando cuuando el formulario se envia.
-    // function(e), Es la función que se ejecuta cuando ocurre el evento, e=evento
+document.getElementById("formPersona").addEventListener("submit", function (e) {
+  //esta escuchando cuuando el formulario se envia.
+  // function(e), Es la función que se ejecuta cuando ocurre el evento, e=evento
 
+  e.preventDefault(); //para que el navegador no recarga la pag.
 
-      e.preventDefault();//para que el navegador no recarga la pag.
+  persona = new Persona(
+    document.getElementById("nombre").value,
+    parseInt(document.getElementById("edad").value),
+    document.getElementById("dni").value,
+    document.getElementById("sexo").value,
+    parseFloat(document.getElementById("peso").value),
+    parseFloat(document.getElementById("altura").value),
+    parseInt(document.getElementById("anioNacimiento").value),
+  );
+  // es lo mismo que persona = new Persona(nombre, edad, dni, sexo, peso, altura, anio);
+  console.log(persona);
+  alert("Persona creada correctamente");
+});
 
-      persona = new Persona(
-        document.getElementById("nombre").value,
-        parseInt(document.getElementById("edad").value),
-        document.getElementById("dni").value,
-        document.getElementById("sexo").value,
-        parseFloat(document.getElementById("peso").value),
-        parseFloat(document.getElementById("altura").value),
-        parseInt(document.getElementById("anioNacimiento").value)
-      );
-// es lo mismo que persona = new Persona(nombre, edad, dni, sexo, peso, altura, anio);
-      console.log(persona)
-      alert("Persona creada correctamente");
-    });
+function mostrarGen() {
+  if (persona) {
+    alert(persona.mostrarGeneracion());
+  } else {
+    alert("Primero crea una persona");
+  }
+}
 
-    function mostrarGen() {
-      if (persona) {
-       
-        alert(persona.mostrarGeneracion());
-      } else {
-        alert("Primero crea una persona");
-      }
-    }
+function mayorEdad() {
+  if (persona) {
+    alert(persona.esMayorDeEdad());
+  } else {
+    alert("Primero crea una persona");
+  }
+}
 
-    function mayorEdad() {
-      if (persona) {
-        alert(persona.esMayorDeEdad());
-      } else {
-        alert("Primero crea una persona");
-      }
-    }
-
-    function mostrarInfo() {
-      if (persona) {
-        alert(persona.mostrarDatos());
-      } else {
-        alert("Primero crea una persona");
-      }
-    }
-    
+function mostrarInfo() {
+  if (persona) {
+    alert(persona.mostrarDatos());
+  } else {
+    alert("Primero crea una persona");
+  }
+}
